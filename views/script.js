@@ -15,16 +15,16 @@ async function initMap() {
     mapId: "DEMO_MAP_ID",
     });
 
-    getFullDb(populateMarkers())
+    getFullDb(populateMarkers)
 }
 
 async function createMarker(position, id) {
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
+    console.log(map, position, id);
     const marker = new AdvancedMarkerElement({
         map: map,
         position: position,
-        title: id,
+        title: id.toString(),
     });
 
     marker.addListener('click', ({ domEvent, latLng }) => {
@@ -34,14 +34,13 @@ async function createMarker(position, id) {
 }
 
 async function populateMarkers(db) {
-    console.log(db);
-    for (user of db.users) {
-        position = {
+    for (const user of db.users) {
+        let position = {
           lat: user.location.latitude,
           lng: user.location.longitude
         };
         createMarker(position, user.id);
-      }
+    }
 }
 
 initMap();
