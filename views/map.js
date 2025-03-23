@@ -30,6 +30,7 @@ async function initMap() {
   });
 
   marker.addListener('click', ({ domEvent, latLng }) => {
+    console.log('click', domEvent, latLng);
     // const { target } = domEvent;
     // infoWindow.close();
     // infoWindow.setContent(marker.title);
