@@ -34,7 +34,11 @@ async function createMarker(position, id) {
 }
 
 function extractMarkerInfo(db, id) {
-    // TODO:
+    for (let info in db.users) {
+        if (user.id = id) {
+            return user
+        }
+    }
 }
 
 async function populateMarkers(db) {
