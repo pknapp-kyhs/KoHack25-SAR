@@ -1,3 +1,4 @@
+
 /**
  * @license
  * Copyright 2019 Google LLC. All Rights Reserved.
@@ -8,7 +9,6 @@ let map;
 
 async function initMap() {
   // The location of Uluru
-  
   const position = { lng: -73.973 , lat: 40.893 };
   // Request needed libraries.
   //@ts-ignore
