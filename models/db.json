@@ -1,4 +1,55 @@
 {
-    "'t": "db",
-    "name": "db",
-}
+    "heritage_locations": [
+      {"Czechoslovakia": { "latitude": 49.8175, "longitude": 15.4730 }},
+      {"Morocco": { "latitude": 31.7917, "longitude": -7.0926 }},
+      {"Poland": { "latitude": 51.9194, "longitude": 19.1451 }}
+    ],
+    "users": [
+      {
+        "id": 1,
+        "email": "Elanda@sarhighschool.org",
+        "username": "Elanda",
+        "password": "password123",
+        "heritage_name": "Czechoslovakia",
+        "heritage_coords": { "latitude": 49.8175, "longitude": 15.4730 },
+        "location": {
+          "location_name": "EnglewoodNJ",
+          "recipe": "Koláče (Czech Pastries) - Sweet pastries filled with poppy seeds, jam, or farmer's cheese, traditionally made by my grandmother every Purim.",
+          "story": "My family immigrated from Czechoslovakia after WWII, preserving our unique minhagim including singing special tunes during Shabbat dinners passed down through generations.",
+          "latitude": 40.878239,
+          "longitude": -73.993973
+        }
+      },
+      {
+        "id": 2,
+        "email": "igibor26@sarhighschool.org",
+        "username": "Igibor",
+        "password": "password456",
+        "heritage_name": "Morocco",
+        "heritage_coords": { "latitude": 31.7917, "longitude": -7.0926 },
+        "location": {
+          "location_name": "Jerusalem",
+          "recipe": "Shakshuka - Eggs poached in spicy tomato sauce with peppers and onions, taught to me by my grandfather every Friday morning.",
+          "story": "My family moved from Morocco to Jerusalem, bringing vibrant Sephardic customs like the special chanting style of Kiddush on Shabbat.",
+          "latitude": 31.7683,
+          "longitude": 35.2137
+        }
+      },
+      {
+        "id": 3,
+        "email": "Adardik@sarhighschool.org",
+        "username": "Aaron Dardik",
+        "password": "password456",
+        "heritage_name": "Poland",
+        "heritage_coords": { "latitude": 51.9194, "longitude": 19.1451 },
+        "location": {
+          "location_name": "LosAngelesCA",
+          "recipe": "Classic Potato Kugel - A savory potato casserole recipe passed down from my great-grandmother, traditionally served during family gatherings and holidays.",
+          "story": "Originally from Poland, my family settled in Los Angeles, keeping alive Ashkenazi traditions like gathering to bake challah together every Thursday night.",
+          "latitude": 34.052235,
+          "longitude": -118.243683
+        }
+      }
+    ]
+  }
+  
