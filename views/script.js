@@ -36,9 +36,21 @@ async function createMarker(position, id) {
 }
 
 function extractMarkerInfo(db, id) {
+
+    const markerInfoBox = document.getElementById('markerInfo');
+    markerInfoBox.style.visibility = 'visible';
+
     for (const user of db.users) {
         if (user.id == id) {
             console.log(user);
+            markerInfoBox.innerHTML = `
+                <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
+                <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                    <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">story</div>
+                    <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">recipes</div>
+                    <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">contact</div>
+                </div>
+            `;
         }
     }
 }
