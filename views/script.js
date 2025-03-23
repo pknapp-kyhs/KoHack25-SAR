@@ -42,7 +42,6 @@ async function populateMarkers(db) {
         };
         createMarker(position, user.id);
       }
-    }
 }
 
 initMap();
