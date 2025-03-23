@@ -29,7 +29,7 @@ async function createMarker(position, id) {
 
     marker.addListener('click', ({ domEvent, latLng }) => {
         console.log('click', domEvent, latLng);
-        // TODO: open info
+        
     });
 }
 
