@@ -8,7 +8,7 @@
       {
         "id": 1,
         "email": "Elanda@sarhighschool.org",
-        "username": "Elanda",
+        "name": "Ezra Landa",
         "password": "password123",
         "heritage_name": "Czechoslovakia",
         "heritage_coords": { "latitude": 49.8175, "longitude": 15.4730 },
@@ -23,7 +23,7 @@
       {
         "id": 2,
         "email": "igibor26@sarhighschool.org",
-        "username": "Igibor",
+        "name": "Ilay Gibor",
         "password": "password456",
         "heritage_name": "Morocco",
         "heritage_coords": { "latitude": 31.7917, "longitude": -7.0926 },
@@ -38,7 +38,7 @@
       {
         "id": 3,
         "email": "Adardik@sarhighschool.org",
-        "username": "Aaron Dardik",
+        "name": "Aaron Dardik",
         "password": "password456",
         "heritage_name": "Poland",
         "heritage_coords": { "latitude": 51.9194, "longitude": 19.1451 },
