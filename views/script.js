@@ -41,6 +41,8 @@ function extractMarkerInfo(db, id) {
     }
 }
 
+
+
 async function populateMarkers(db) {
     for (const user of db.users) {
         let position = {
