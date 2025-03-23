@@ -33,6 +33,10 @@ async function createMarker(position, id) {
     });
 }
 
+function extractMarkerInfo(db, id) {
+    // TODO:
+}
+
 async function populateMarkers(db) {
     for (const user of db.users) {
         let position = {
