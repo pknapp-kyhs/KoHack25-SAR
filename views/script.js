@@ -35,11 +35,14 @@ async function createMarker(position, id) {
 
 async function populateMarkers(db) {
     console.log(db);
-    //{ lng: marker.longitude, lat: marker.latitude }
-    // TODO:
-    // foreach marker in db {
-    //     createMarker(marker.position, marker.id);
-    // }
+    for (user of db.users) {
+        position = {
+          lat: user.location.latitude,
+          lng: user.location.longitude
+        };
+        createMarker(position, user.id);
+      }
+    }
 }
 
 initMap();
