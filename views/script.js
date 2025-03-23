@@ -28,15 +28,17 @@ async function createMarker(position, id) {
     });
 
     marker.addListener('click', ({ domEvent, latLng }) => {
-        console.log('click', domEvent, latLng);
-        
+
+        let id = domEvent['srcElement']['Bo']['ariaLabel'];
+
+        getFullDb((db) => extractMarkerInfo(db, id));
     });
 }
 
 function extractMarkerInfo(db, id) {
-    for (let info in db.users) {
-        if (user.id = id) {
-            return user
+    for (const user of db.users) {
+        if (user.id == id) {
+            console.log(user);
         }
     }
 }
