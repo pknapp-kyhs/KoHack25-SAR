@@ -1,6 +1,6 @@
 // Imports
 import { getFullDb } from './query.js';
-
+import { markersAndLatLng, defaultPinElement, isSameMarkerFromCoordinates } from './searchbar.js'
 
 let map;
 
@@ -33,18 +33,24 @@ async function createMarker(position, id) {
         map: map,
         position: position,
         title: id.toString(),
+        content: defaultPinElement(id)
     });
+
+    markersAndLatLng.push({marker: marker, latLng: position});
 
     marker.addListener('click', ({ domEvent, latLng }) => {
 
-        let id = domEvent['srcElement']['Bo']['ariaLabel'];
+        console.log(domEvent);
 
-        getFullDb((db) => extractMarkerInfo(db, id));
+        document.getElementById('searchBar').style.visibility = 'hidden';
+
+        getFullDb((db) => extractMarkerInfo(db, latLng));
     });
 }
 
 // Iterate through markers and call createMarker for each
 async function populateMarkers(db) {
+    
     for (const user of db.users) {
         let position = {
           lat: user.location.latitude,
@@ -58,13 +64,13 @@ async function populateMarkers(db) {
 
 
 // Extract information from the database and display it in the marker info box
-function extractMarkerInfo(db, id) {
+function extractMarkerInfo(db, latLng) {
 
     const markerInfoBox = document.getElementById('markerInfo');
     markerInfoBox.style.visibility = 'visible';
 
     for (const user of db.users) {
-        if (user.id == id) {
+        if (isSameMarkerFromCoordinates(user.location, { lat: latLng.lat(), lng: latLng.lng() })) {
             console.log(user);
 
             let userStory = `Heritage: ${user.heritage_name}<br><br>Story: ${user.story}`;
@@ -72,7 +78,7 @@ function extractMarkerInfo(db, id) {
 
             // Set the innterHTML of the markerInfoBox to the user's information
             markerInfoBox.innerHTML = `
-            <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';">
+            <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';document.getElementById('searchBar').style.visibility = 'visible';">
             <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
             <div style="display: flex; justify-content: space-around; margin-top: 20px;">
                 <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${userStory}'" class="markerInfoTab">story</div>

@@ -1,6 +1,6 @@
 #searchBar {
     width: 50%;
-    height: 8%;
+    height: 60px;
     position: absolute;
     top: 10%;
     left: 50%;
@@ -11,20 +11,27 @@
 }
 
 #searchBar #searchBarImage {
+    display: inline-block;
+    position: absolute;
     height: 47px;
     width: 45px;
-    margin-top: 1.3%;
+    margin-top: 1%;
     margin-left: 1%;
 }
 
-#searchBar p {
+#searchBar input {
     display: inline-block;
     vertical-align: top;
-    margin-left: 35%;
-    line-height: 20px;
+    width: 100%;
+    margin-right: 3%;
+    line-height: 6px;
     font-size: 1.5em;
+    margin-top: 15px;
+    text-align: center;
     letter-spacing: 2px;
-    font-family: 'Roboto', sans-serif;
+    background: none;
+    border: none;
+    outline:none;
 }
 
 .infoBox {
