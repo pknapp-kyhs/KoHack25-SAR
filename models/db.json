@@ -14,7 +14,7 @@
         "heritage_name": "Czechoslovakia",
         "heritage_coords": { "latitude": 49.8175, "longitude": 15.4730 },
         "location": {
-          "location_name": "EnglewoodNJ",
+          "location_name": "Englewood, NJ, USA",
           "latitude": 40.878239,
           "longitude": -73.993973
         },
@@ -31,7 +31,7 @@
         "heritage_name": "Morocco",
         "heritage_coords": { "latitude": 31.7917, "longitude": -7.0926 },
         "location": {
-          "location_name": "Jerusalem",
+          "location_name": "Jerusalem, Israel",
           "latitude": 31.7683,
           "longitude": 35.2137
         },
@@ -48,7 +48,7 @@
         "heritage_name": "Poland",
         "heritage_coords": { "latitude": 51.9194, "longitude": 19.1451 },
         "location": {
-          "location_name": "LosAngelesCA",
+          "location_name": "LosAngeles, CA, USA",
           "latitude": 34.052235,
           "longitude": -118.243683
         },

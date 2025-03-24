@@ -65,15 +65,17 @@ function extractMarkerInfo(db, id) {
         if (user.id == id) {
             console.log(user);
 
+            let userStory = `Heritage: ${user.heritage_name}<br><br>Story: ${user.story}`;
+            let userContact = `Email Address: ${user.email}<br><br>Phone Number: ${user.phone}<br><br>Address: ${user.location.location_name}`;
 
             // Set the innterHTML of the markerInfoBox to the user's information
             markerInfoBox.innerHTML = `
             <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';">
             <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
             <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.story}'" class="markerInfoTab">story</div>
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${userStory}'" class="markerInfoTab">story</div>
                 <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.recipe}'" class="markerInfoTab">recipes</div>
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.email}'" class="markerInfoTab">contact</div>                    
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${userContact}'" class="markerInfoTab">contact</div>                    
             </div>
             <div id="markerInfoSubsection"></div>
             `;
