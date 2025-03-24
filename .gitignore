@@ -1,4 +1,5 @@
 api_shim.js
+secrets.js
 
 # npm
 node_modules

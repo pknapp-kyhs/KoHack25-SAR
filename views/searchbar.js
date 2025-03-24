@@ -28,14 +28,14 @@ function typeEvent(text, db) {
             markersAndLatLng
                 .filter(markerAndLatLng => isSameMarkerFromCoordinates(user.location, markerAndLatLng.latLng))
                 .forEach(markerAndLatLng => {
-                    markerAndLatLng.marker.content = highlighedPinElement(user.id);
+                    markerAndLatLng.marker.content = highlighedPinElement();
             });
         }
         else {
             markersAndLatLng
                 .filter(markerAndLatLng => isSameMarkerFromCoordinates(user.location, markerAndLatLng.latLng))
                 .forEach(markerAndLatLng => {
-                    markerAndLatLng.marker.content = defaultPinElement(user.id);
+                    markerAndLatLng.marker.content = defaultPinElement();
             });
         
         }

@@ -6,7 +6,6 @@
     ],
     "users": [
       {
-        "id": 1,
         "email": "Elanda@sarhighschool.org",
         "name": "Ezra Landa",
         "phone": "9724521323",
@@ -23,7 +22,6 @@
         
       },
       {
-        "id": 2,
         "email": "igibor26@sarhighschool.org",
         "name": "Ilay Gibor",
         "phone": "3474124264",
@@ -40,7 +38,6 @@
 
       },
       {
-        "id": 3,
         "email": "Adardik@sarhighschool.org",
         "name": "Aaron Dardik",
         "phone": "8014421569",
@@ -48,7 +45,7 @@
         "heritage_name": "Poland",
         "heritage_coords": { "latitude": 51.9194, "longitude": 19.1451 },
         "location": {
-          "location_name": "LosAngeles, CA, USA",
+          "location_name": "Los Angeles, CA, USA",
           "latitude": 34.052235,
           "longitude": -118.243683
         },

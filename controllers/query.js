@@ -9,3 +9,10 @@ export function getFullDb(callback){
     ajax.open("GET", `getDb`, true);
     ajax.send();
 }
+
+
+export function updateDb(dbEntry) {
+  var ajax = new XMLHttpRequest();
+  ajax.open("POST", `updateDb`, true);
+  ajax.send(JSON.stringify(dbEntry));
+}

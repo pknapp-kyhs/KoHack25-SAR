@@ -23,17 +23,17 @@ async function initMap() {
 }
 
 // Create a marker at a given position (longitude and latitude)
-async function createMarker(position, id) {
+async function createMarker(position, name) {
     
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-    console.log(map, position, id);
+    console.log(map, position);
 
     const marker = new AdvancedMarkerElement({
         map: map,
         position: position,
-        title: id.toString(),
-        content: defaultPinElement(id)
+        title: name,
+        content: defaultPinElement()
     });
 
     markersAndLatLng.push({marker: marker, latLng: position});
@@ -43,6 +43,7 @@ async function createMarker(position, id) {
         console.log(domEvent);
 
         document.getElementById('searchBar').style.visibility = 'hidden';
+        document.getElementById('submitInfoButton').style.visibility = 'hidden';
 
         getFullDb((db) => extractMarkerInfo(db, latLng));
     });
@@ -57,7 +58,7 @@ async function populateMarkers(db) {
           lng: user.location.longitude
         };
         // Create a marker at the user's location
-        createMarker(position, user.id);
+        createMarker(position, user.name);
     }
 }
 
@@ -76,9 +77,11 @@ function extractMarkerInfo(db, latLng) {
             let userStory = `Heritage: ${user.heritage_name}<br><br>Story: ${user.story}`;
             let userContact = `Email Address: ${user.email}<br><br>Phone Number: ${user.phone}<br><br>Address: ${user.location.location_name}`;
 
+            let x_button_onclick = "document.getElementById('markerInfo').style.visibility='hidden';document.getElementById('searchBar').style.visibility = 'visible';document.getElementById('submitInfoButton').style.visibility = 'visible';";
+            
             // Set the innterHTML of the markerInfoBox to the user's information
             markerInfoBox.innerHTML = `
-            <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';document.getElementById('searchBar').style.visibility = 'visible';">
+            <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="${x_button_onclick}">
             <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
             <div style="display: flex; justify-content: space-around; margin-top: 20px;">
                 <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${userStory}'" class="markerInfoTab">story</div>
