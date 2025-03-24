@@ -48,8 +48,8 @@ function extractMarkerInfo(db, id) {
             <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';">
             <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
             <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.location.story}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">story</div>
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.location.recipe}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">recipes</div>
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.story}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">story</div>
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.recipe}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">recipes</div>
                 <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.email}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">contact</div>                    
             </div>
             <div id="markerInfoSubsection"></div>
