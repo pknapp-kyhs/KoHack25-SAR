@@ -12,6 +12,20 @@
     visibility: hidden;
 }
 
+#markerInfoSubsection {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.6;
+    padding: 20px;
+    margin-top: 15px;
+    max-height: 60%;
+    overflow-y: auto; 
+    word-wrap: break-word;
+}
+
+
 /* Set the style for the marker info tabs (story, recipies, contact) */
 .markerInfoTab {
     background-color: grey; 
