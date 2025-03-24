@@ -10,7 +10,7 @@ export function getFullDb(callback){
     ajax.send();
 }
 
-
+// Use AJAX to send a request to add a new user to the database
 export function updateDb(dbEntry) {
   var ajax = new XMLHttpRequest();
   ajax.open("POST", `updateDb`, true);

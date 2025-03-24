@@ -1,7 +1,9 @@
+// Imports
 import { getGeocoordinatesFromName } from './geocoordinates.js'
 import { updateDb } from './query.js';
 
 
+// Stores display name (how it will show up on the question form) and its name in the db
 class InfoFormNamePair {
     constructor(displayName, dbName) {
         this.displayName = displayName;
@@ -9,30 +11,38 @@ class InfoFormNamePair {
     }
 }
 
+// Questions that will be asked on the info form
 const steps = [
     [new InfoFormNamePair("Email:", "email"), new InfoFormNamePair("Name:", "name"), new InfoFormNamePair("Password:", "password")],
     [new InfoFormNamePair("Address:", "location_name"), new InfoFormNamePair("City:", "location_name"),new InfoFormNamePair("Country:", "location_name")],
     [new InfoFormNamePair("Phone Number:", "phone"), new InfoFormNamePair("Shul Name:", "shul"), new InfoFormNamePair("Heritage:","heritage_name")],
-    [new InfoFormNamePair("Tell Us Your heritage Story:", "story")],
-    [new InfoFormNamePair("Tell us a traditional recipes you know:", "recipe")]
+    [new InfoFormNamePair("Tell Us Your Heritage Story:", "story")],
+    [new InfoFormNamePair("Tell Us a Traditional Recipe You Know:", "recipe")]
 ];
 
+// Stores answers on each page of the form
 const answers = {};
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Intialize info form data
+
     const submitButton = document.getElementById('submitButton');
-    const infoBox = document.getElementById('formBox'); // grab the infoBox container
+    const infoBox = document.getElementById('formBox');
   
     let step = 1;
 
     setInfoFormDefault();
   
     submitButton.addEventListener('click', () => {
-        
+
+        // On click of the 'Next' or 'Submit' buttons:
+
         recordAnswers(step);
 
         if (steps[step]) {
     
+            // Render next question, hide others
             if (steps[step].length == 3) {
                 for (let i = 1; i <= 3; i++) {
 
@@ -58,13 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         else {
+            // No more steps left, form submitted
+
             recordAnswers(step);
             setInfoFormDefault();
             infoBox.style.visibility = 'hidden';
             document.getElementById("submitInfoButton").style.visibility = 'visible';
             step = 0;
             
+            // Update DB, reload page
             updateDb(answers);
+            location.reload();
         }
         
         step++;
@@ -72,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
   
 
+// Return info form to defualt state
 function setInfoFormDefault() {
     
     for (let i = 1; i <= 3; i++) {
@@ -85,6 +100,7 @@ function setInfoFormDefault() {
     }
 }
 
+// Record answers on form from previous step
 function recordAnswers(step) {
     step--;
 
