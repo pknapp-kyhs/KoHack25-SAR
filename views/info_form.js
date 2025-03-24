@@ -36,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
     submitButton.addEventListener('click', () => {
 
+        
+        for (let i = 1; i <= 3; i++) {
+                    
+            if (document.getElementById('input' + i.toString()).value == '') {
+                alert("Please fill in field: " + steps[step-1][i-1].displayName.slice(0, -1));
+                return;
+            }
+        }
+
         // On click of the 'Next' or 'Submit' buttons:
 
         recordAnswers(step);
