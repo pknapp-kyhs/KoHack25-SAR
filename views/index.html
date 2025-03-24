@@ -7,12 +7,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="module" src="script.js"></script>
     <script type="module" src="searchbar.js"></script>
+    <script type="module" src="info_form.js"></script>
   </head>
   <body>
 
     <div id="searchBar">
       <img id="searchBarImage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/1890px-Vector_search_icon.svg.png" alt="Search Icon" width="20" height="20">
-      <input type="text" placeholder="search" id="searchInput">
+      <input type="text" autocomplete='off' placeholder="search" id="searchInput">
     </div>
 
     <!-- Div for the marker info box. The innerHTML will be populated on click of a given marker -->
@@ -22,29 +23,27 @@
       </div>
     </div>
 
-    <div class="infoBox" id="formBox">
+    <div style="visibility: hidden;" class="infoBox" id="formBox">
       <div class="loginRow">
-        <b class="label" id="label1">Email:</b>
+        <b class="label" id="label1"></b>
         <input type="text" class="inputField" id="input1">
       </div>
     
       <div class="loginRow">
-        <b class="label" id="label2">Username:</b>
+        <b class="label" id="label2"></b>
         <input type="text" class="inputField" id="input2">
       </div>
     
       <div class="loginRow">
-        <b class="label" id="label3">Password:</b>
+        <b class="label" id="label3"></b>
         <input type="password" class="inputField" id="input3">
       </div>
     
       <button class="submitButton" id="submitButton">Next</button>
     </div>
-    
-    
 
+    <div id="submitInfoButton" onclick="document.getElementById('formBox').style.visibility='visible'; this.style.visibility='hidden'"><p>Submit Info</p></div>
 
-    </div>
 
 
     <div id="map"></div>
