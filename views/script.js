@@ -44,12 +44,13 @@ function extractMarkerInfo(db, id) {
         if (user.id == id) {
             console.log(user);
             markerInfoBox.innerHTML = `
-                <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
-                <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-                    <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">story</div>
-                    <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">recipes</div>
-                    <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">contact</div>
-                </div>
+            <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';">
+            <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
+            <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">story</div>
+                <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">recipes</div>
+                <div style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">contact</div>                    
+            </div>
             `;
         }
     }
