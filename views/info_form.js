@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setInfoFormDefault();
             infoBox.style.visibility = 'hidden';
             document.getElementById("submitInfoButton").style.visibility = 'visible';
+            document.getElementById('searchBar').style.visibility='visible';
             step = -1;
         }
         
