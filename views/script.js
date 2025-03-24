@@ -1,7 +1,10 @@
+// Imports
 import { getFullDb } from './query.js';
+
 
 let map;
 
+// Create map and markers
 async function initMap() {
 
     const defualtPosition = { lng: 0, lat: 20 };
@@ -10,17 +13,22 @@ async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
 
     map = new Map(document.getElementById("map"), {
-    zoom: 3,
-    center: defualtPosition,
-    mapId: "DEMO_MAP_ID",
+        zoom: 3,
+        center: defualtPosition,
+        mapId: "DEMO_MAP_ID",
     });
 
+    // Get the database and populate the map with markers
     getFullDb(populateMarkers)
 }
 
+// Create a marker at a given position (longitude and latitude)
 async function createMarker(position, id) {
+    
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
     console.log(map, position, id);
+
     const marker = new AdvancedMarkerElement({
         map: map,
         position: position,
@@ -35,6 +43,19 @@ async function createMarker(position, id) {
     });
 }
 
+// Iterate through markers and call createMarker for each
+async function populateMarkers(db) {
+    for (const user of db.users) {
+        let position = {
+          lat: user.location.latitude,
+          lng: user.location.longitude
+        };
+        // Create a marker at the user's location
+        createMarker(position, user.id);
+    }
+}
+
+// Extract information from the database and display it in the marker info box
 function extractMarkerInfo(db, id) {
 
     const markerInfoBox = document.getElementById('markerInfo');
@@ -44,29 +65,19 @@ function extractMarkerInfo(db, id) {
         if (user.id == id) {
             console.log(user);
 
+
+            // Set the innterHTML of the markerInfoBox to the user's information
             markerInfoBox.innerHTML = `
             <img src="x_button.png" alt="Close" style="width: 50px; height: 50px; margin-left:96%; margin-top:1%;" onclick="document.getElementById('markerInfo').style.visibility='hidden';">
             <h1 style="text-align: center; font-size: 3em">${user.name}</h1>
             <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.story}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">story</div>
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.recipe}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">recipes</div>
-                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.email}'" style="background-color: grey; padding: 10px; flex: 1; height: 20%; text-align: center; border-radius: 10px; margin: 0 10px;">contact</div>                    
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.story}'" class="markerInfoTab">story</div>
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.recipe}'" class="markerInfoTab">recipes</div>
+                <div onclick="document.getElementById('markerInfoSubsection').innerHTML='${user.email}'" class="markerInfoTab">contact</div>                    
             </div>
             <div id="markerInfoSubsection"></div>
             `;
         }
-    }
-}
-
-
-
-async function populateMarkers(db) {
-    for (const user of db.users) {
-        let position = {
-          lat: user.location.latitude,
-          lng: user.location.longitude
-        };
-        createMarker(position, user.id);
     }
 }
 

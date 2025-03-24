@@ -1,3 +1,4 @@
+// Use AJAX to get the database from the server and invoke callback with the database as an argument
 export function getFullDb(callback){
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function(){

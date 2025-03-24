@@ -1,3 +1,4 @@
+/* Set the style for the marker info boxes*/
 #markerInfo {
     width: 90%;
     height: 90%;
@@ -11,6 +12,18 @@
     visibility: hidden;
 }
 
+/* Set the style for the marker info tabs (story, recipies, contact) */
+.markerInfoTab {
+    background-color: grey; 
+    padding: 10px; 
+    flex: 1; 
+    height: 20%; 
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+/* Set the style for the map */
 #map {
     height: 100%;
 }
