@@ -27,8 +27,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Set the style for the marker info boxes*/
-#markerInfo {
+.infoBox {
     width: 90%;
     height: 90%;
     position: absolute;
@@ -38,6 +37,42 @@
     background-color: rgba(0, 0, 0, 0.6); 
     z-index: 1;
     border-radius: 20px;
+}
+
+#formBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+}
+
+#formBox .Next {
+    position: absolute;
+    bottom: 20px;  /* Distance from bottom */
+    right: 20px;   /* Distance from right */
+    font-family: 'Roboto', sans-serif; 
+    font-size: 2em;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+#formBox b {
+    font-family: 'Roboto', sans-serif; /* Match font-family */
+    font-size: 2em;                    /* Match font-size */
+    color: #ffffff;                    /* Match color */
+    text-align: center;                /* Match text alignment */
+    line-height: 1.6;                  /* Match line-height */
+    padding: 20px;                     /* Match padding */
+    margin-top: 15px;                  /* Match top margin */
+    word-wrap: break-word;             /* Ensures proper text wrapping */
+}
+
+  
+
+
+/* Set the style for the marker info boxes*/
+#markerInfo {
     visibility: hidden;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
@@ -54,6 +89,25 @@
     overflow-y: auto; 
     word-wrap: break-word;
 }
+.loginRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.submitButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 2em;
+    color: #ffffff;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+
 
 
 /* Set the style for the marker info tabs (story, recipies, contact) */

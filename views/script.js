@@ -55,6 +55,8 @@ async function populateMarkers(db) {
     }
 }
 
+
+
 // Extract information from the database and display it in the marker info box
 function extractMarkerInfo(db, id) {
 
@@ -85,3 +87,52 @@ function extractMarkerInfo(db, id) {
 
 initMap();
 
+document.addEventListener('DOMContentLoaded', () => {
+    const submitButton = document.getElementById('submitButton');
+    const infoBox = document.getElementById('formBox'); // grab the infoBox container
+  
+    let step = 0;
+  
+    const steps = [
+      ["Email:", "Name:", "Password:"],
+      ["Address:", "City:", "Country:"],
+      ["Phone Number:", "Date of Birth:", "Heritage:"],
+      ["Tell Us Your heritage Story:"],
+      ["Tell us a traditional recipes you know:"]
+    ];
+  
+    submitButton.addEventListener('click', () => {
+        
+        if (steps[step]) {
+    
+            if (steps[step].length == 3) {
+                for (let i = 1; i <= 3; i++) {
+
+                    document.getElementById('label' + i.toString()).textContent = steps[step][i-1];
+                    document.getElementById('input' + i.toString()).value = '';
+                }
+            }
+            else if (steps[step].length == 1) {
+                document.getElementById('label1').textContent = steps[step][0];
+
+                document.getElementById('label2').style.visibility = 'hidden';
+                document.getElementById('label3').style.visibility = 'hidden';
+
+                document.getElementById('input2').style.visibility = 'hidden';
+                document.getElementById('input3').style.visibility = 'hidden';
+
+            }
+            
+            if (!steps[step + 1]) {
+                submitButton.textContent = 'Submit';
+            }
+        }
+        else {
+            alert('Form submitted!');
+            infoBox.style.visibility = 'hidden';
+        }
+        
+        step++;
+    });
+  });
+  
